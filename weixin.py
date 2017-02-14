@@ -341,14 +341,22 @@ class WebWeixin(object):
 
     def testsynccheck(self):
         SyncHost = [
+            'wx2.qq.com',
+            'webpush.wx2.qq.com',
+            'wx8.qq.com',
+            'webpush.wx8.qq.com',
+            'qq.com',
+            'webpush.wx.qq.com',
+            'web2.wechat.com',
+            'webpush.web2.wechat.com',
+            'wechat.com',
+            'webpush.web.wechat.com',
             'webpush.weixin.qq.com',
-            #'webpush2.weixin.qq.com',
             'webpush.wechat.com',
             'webpush1.wechat.com',
             'webpush2.wechat.com',
             'webpush.wx.qq.com',
             'webpush2.wx.qq.com'
-            # 'webpush.wechatapp.com'
         ]
         for host in SyncHost:
             self.syncHost = host
@@ -1035,12 +1043,12 @@ class WebWeixin(object):
         qr = qrcode.QRCode()
         qr.border = 1
         qr.add_data(str)
-        qr.make()
+        #qr.make()
         # img = qr.make_image()
         # img.save("qrcode.png")
-        #mat = qr.get_matrix()
-        #self._printQR(mat)  # qr.print_tty() or qr.print_ascii()
-        qr.print_ascii(invert=True)
+        mat = qr.get_matrix()
+        self._printQR(mat)  # qr.print_tty() or qr.print_ascii()
+        #qr.print_ascii(invert=True)
 
     def _transcoding(self, data):
         if not data:
